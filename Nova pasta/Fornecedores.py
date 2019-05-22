@@ -49,5 +49,5 @@ class principal(Frame):
         top.mainloop()
 
 
-principal()
+
 

@@ -1,42 +1,56 @@
 from tkinter import *
+
+
 import AberturaCaixa
+import Estoque
+import Cadastros
+import FechamentoCaixa
+#import Fornecedores
 
 valorInicialCaixa = DoubleVar
 
 
 class Principal(Frame):
     def __init__(self, **kw):
-        top = Tk()
-        top.title("Bem Vindo")
-        top.geometry("800x500")
-        top.configure(background='#D3D3D3')
+        #super().__init__(**kw)
+        tela_bem_vindo = Tk()
+        tela_bem_vindo.title("Bem Vindo")
+        tela_bem_vindo.geometry("800x500")
+        tela_bem_vindo.configure(background='#D3D3D3')
 
-        canvas = Canvas(top, width=800, height=500, background='#DFFFD3')
+        canvas = Canvas(tela_bem_vindo, width=800, height=500, background='#DFFFD3')
 
         r1 = canvas.create_rectangle(50, 100, 250, 400, fill="white")
         r2 = canvas.create_rectangle(300, 100, 700, 220, fill="white")
         r3 = canvas.create_rectangle(300, 250, 700, 400, fill="white")
+
+        # img = PhotoImage(file="logo_provisoria2.jpg")
+        # canvas.create_image(0, 0, image=img, anchor=NW)
+
         canvas.place(x=0, y=0)
 
-        caixa = Button(text="Caixa", command=self.ChamaCaixa)
+
+        caixa = Button(tela_bem_vindo, text="Caixa", command=self.ChamaCaixa)
         caixa.place(x=90, y=150)
 
-        estoque = Button(text="Estoque")  # ,command=Caixa)
+        estoque = Button(tela_bem_vindo, text="Estoque", command=self.ChamaEstoque)
         estoque.place(x=90, y=190)
 
-        pedidos = Button(text="Pedidos")  # ,command=Caixa)
+        pedidos = Button(tela_bem_vindo, text="Pedidos")  # ,command=Caixa)
         pedidos.place(x=90, y=230)
 
-        cadastros = Button(text="Cadastros")  # ,command=Caixa)
+        cadastros = Button(tela_bem_vindo, text="Cadastros", command=self.ChamaCadastros)
         cadastros.place(x=90, y=270)
 
-        recebimentos = Button(text="Recebimentos")  # ,command=Caixa)
+        recebimentos = Button(tela_bem_vindo, text="Recebimentos")  # ,command=Caixa)
         recebimentos.place(x=90, y=310)
-        top.mainloop()
+        tela_bem_vindo.mainloop()
 
     def ChamaCaixa(self):
         AberturaCaixa.AberturaCaixa()
+    def ChamaEstoque(self):
+        Estoque.Estoque()
+    def ChamaCadastros(self):
+        Cadastros.Cadastros()
 
-
-Principal()
 
