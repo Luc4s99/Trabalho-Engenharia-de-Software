@@ -1,7 +1,9 @@
 from tkinter import *
+from tkinter import ttk
 
 nome_cliente_cadastro = StringVar
 endereco_cliente_cadastro = StringVar
+numero_casa_cliente_cadastro = StringVar
 telefone_cliente_cadastro = StringVar
 cnpj_cliente_cadastro = StringVar
 
@@ -14,34 +16,48 @@ class CadastroCliente(Frame):
         tela_cadastro_cliente.geometry("600x400")
         tela_cadastro_cliente.configure(background='#D3D3D3')
 
-        caixa_canvas = Canvas(tela_cadastro_cliente, width=800, height=500, background='#DFFFD3')
+        caixa_canvas = Canvas(tela_cadastro_cliente, width=800, height=500, background='#ccd7ff')
 
-        r1 = caixa_canvas.create_rectangle(50, 50, 550, 300, fill="white")
+        r1 = caixa_canvas.create_rectangle(50, 50, 550, 300, fill="white", outline='red', width=3)
         caixa_canvas.place(x=0, y=0)
 
-        nome_cliente_label = Label(tela_cadastro_cliente, text="Nome do Cliente")
-        nome_cliente_label.place(x=120, y=100)
+        nome_cliente_label = Label(tela_cadastro_cliente, text="Nome do Cliente", width=15)
+        nome_cliente_label.place(x=70, y=70)
 
         nome_cliente_entrada = Entry(tela_cadastro_cliente, textvar=nome_cliente_cadastro)
-        nome_cliente_entrada.place(x=250, y=100)
+        nome_cliente_entrada.place(x=200, y=70)
         #####################################################
-        endereco_cliente_label = Label(tela_cadastro_cliente, text="Endereço do Cliente")
-        endereco_cliente_label.place(x=120, y=150)
+        endereco_cliente_label = Label(tela_cadastro_cliente, text="Rua do Cliente", width=15)
+        endereco_cliente_label.place(x=70, y=110)
 
-        endereco_cliente_entrada = Entry(tela_cadastro_cliente, textvar=endereco_cliente_cadastro)
-        endereco_cliente_entrada.place(x=260, y=150)
+        combo_rua = ttk.Combobox(tela_cadastro_cliente,
+                                 values=["Aqui vem uma",
+                                         "query SQL",
+                                         "que mostra",
+                                         "as opções"])
+        combo_rua.place(x=200, y=110)
+
+        # endereco_cliente_entrada = Entry(tela_cadastro_cliente, textvar=endereco_cliente_cadastro)
+        # endereco_cliente_entrada.place(x=200, y=110)
         ####################################################
-        telefone_cliente_label = Label(tela_cadastro_cliente, text="Telefone do Cliente")
-        telefone_cliente_label.place(x=120, y=200)
+
+        numero_casa_cliente_label = Label(tela_cadastro_cliente, text="Nº da Casa", width=15)
+        numero_casa_cliente_label.place(x=70, y=150)
+
+        numero_casa_cliente_entrada = Entry(tela_cadastro_cliente, textvar=numero_casa_cliente_cadastro)
+        numero_casa_cliente_entrada.place(x=200, y=150)
+        ####################################################
+        telefone_cliente_label = Label(tela_cadastro_cliente, text="Telefone do Cliente", width=15)
+        telefone_cliente_label.place(x=70, y=190)
 
         telefone_cliente_entrada = Entry(tela_cadastro_cliente, textvar=telefone_cliente_cadastro)
-        telefone_cliente_entrada.place(x=260, y=200)
+        telefone_cliente_entrada.place(x=200, y=190)
         ####################################################
-        CPF_cliente_label = Label(tela_cadastro_cliente, text="CPF do Cliente")
-        CPF_cliente_label.place(x=120, y=250)
+        CPF_cliente_label = Label(tela_cadastro_cliente, text="CPF do Cliente", width=15)
+        CPF_cliente_label.place(x=70, y=230)
 
         CPF_cliente_entrada = Entry(tela_cadastro_cliente, textvar=cnpj_cliente_cadastro)
-        CPF_cliente_entrada.place(x=260, y=250)
+        CPF_cliente_entrada.place(x=200, y=230)
         ####################################################
 
         salvar = Button(tela_cadastro_cliente, text="Salvar")  # ,command=Caixa)
