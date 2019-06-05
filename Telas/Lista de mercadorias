@@ -1,0 +1,98 @@
+from tkinter import *
+from tkinter import ttk
+
+codigo_material_cadastro = StringVar
+descricao_material_cadastro = StringVar
+fornecedor_material_cadastro = StringVar
+estoque_atual_cadastro = StringVar
+estoque_min_cadastro = StringVar
+preco_compra_cadastro = StringVar
+preco_venda_cadastro = StringVar
+
+
+class ListaMercadorias(Frame):
+
+    def __init__(self):
+        Lista_mercadorias = Tk()
+        Lista_mercadorias.title("Tela de mercadorias")
+        Lista_mercadorias.geometry("600x400")
+        Lista_mercadorias.configure(background='#D3D3D3')
+
+        caixa_canvas = Canvas(Lista_mercadorias, width=800, height=500, background='#ccd7ff')
+
+        r1 = caixa_canvas.create_rectangle(50, 50, 550, 300, fill="white", outline='red', width=3)
+        caixa_canvas.place(x=0, y=0)
+        ##################################################################################
+        
+        codigo_material_label = Label(Lista_mercadorias, text="Codigo", width=15)
+        codigo_material_label.place(x=100, y=75)
+        #botao codigo
+        codigo_material_cadastr = Entry(Lista_mercadorias, textvar=codigo_material_cadastro)
+        codigo_material_cadastr.place(x=200, y=75)
+        #####################################################
+        
+        descricao_material_label = Label(Lista_mercadorias, text="Descricao", width=15)
+        descricao_material_label.place(x=100, y=100)
+        #botao descricao
+        fornecedor_material_cadastr = Entry(Lista_mercadorias, textvar=descricao_material_cadastro)
+        fornecedor_material_cadastr.place(x=200, y=100)
+
+        #####################################################
+        
+        fornecedor_material_label = Label(Lista_mercadorias, text="Fornecedor", width=15)
+        fornecedor_material_label.place(x=100, y=125)
+        #botao fornecedor
+        fornecedor_material_cadastr = Entry(Lista_mercadorias, textvar=fornecedor_material_cadastro)
+        fornecedor_material_cadastr.place(x=200, y=125)
+        
+        #####################################################
+        
+        estoque_atual_label = Label(Lista_mercadorias, text="Estoque atual", width=15)
+        estoque_atual_label.place(x=100, y=150)
+        #botao estoque atual
+        estoque_atual_cadastr = Entry(Lista_mercadorias, textvar=estoque_atual_cadastro)
+        estoque_atual_cadastr.place(x=200, y=150)
+
+        #####################################################
+        
+        estoque_min_label = Label(Lista_mercadorias, text="Estoque min", width=15)
+        estoque_min_label.place(x=100, y=175)
+        #botao estoque min
+        estoque_min_cadastr = Entry(Lista_mercadorias, textvar=estoque_min_cadastro)
+        estoque_min_cadastr.place(x=200, y=175)
+
+        #####################################################
+        
+        preco_compra_label = Label(Lista_mercadorias, text="Preco compra", width=15)
+        preco_compra_label.place(x=100, y=200)
+        #botao preco compra
+        preco_compra_cadastr = Entry(Lista_mercadorias, textvar=preco_compra_cadastro)
+        preco_compra_cadastr.place(x=200, y=200)
+
+        #####################################################
+        
+        preco_venda_label = Label(Lista_mercadorias, text="Preco venda", width=15)
+        preco_venda_label.place(x=100, y=225)
+        #botao preco venda
+        preco_venda_cadastr = Entry(Lista_mercadorias, textvar=preco_venda_cadastro)
+        preco_venda_cadastr.place(x=200, y=225)
+
+        
+        ####################################################
+
+        nova = Button(Lista_mercadorias, text="Nova")  # ,command=Caixa)
+        nova.place(x=208, y=275)
+
+        salvar = Button(Lista_mercadorias, text="Salvar")  # ,command=Caixa)
+        salvar.place(x=255, y=275)
+
+        excluir = Button(Lista_mercadorias, text="Excluir")  # ,command=Caixa)
+        excluir.place(x=305, y=275)
+
+        Fechar = Button(Lista_mercadorias, text="Fechar")  # ,command=Caixa)
+        Fechar.place(x=355, y=275)
+
+        Lista_mercadorias.mainloop()
+
+
+ListaMercadorias()
