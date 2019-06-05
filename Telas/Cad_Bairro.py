@@ -27,6 +27,3 @@ class CadastroBairro(Frame):
 
     def voltar(self):
         self.tela_cad_bairro.destroy()
-
-
-CadastroBairro()

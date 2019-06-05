@@ -1,9 +1,10 @@
 from tkinter import *
 
 
-import AberturaCaixa
+import SelecaoCaixa
 import Estoque
 import Cadastros
+import CompraOuVenda
 import FechamentoCaixa
 #import Fornecedores
 
@@ -29,28 +30,31 @@ class Principal(Frame):
 
         canvas.place(x=0, y=0)
 
-
         caixa = Button(tela_bem_vindo, text="Caixa", command=self.ChamaCaixa)
         caixa.place(x=90, y=150)
 
         estoque = Button(tela_bem_vindo, text="Estoque", command=self.ChamaEstoque)
         estoque.place(x=90, y=190)
 
-        pedidos = Button(tela_bem_vindo, text="Pedidos")  # ,command=Caixa)
+        pedidos = Button(tela_bem_vindo, text="Compra/Venda", command=self.ChamaCompraVenda)  # ,command=Caixa)
         pedidos.place(x=90, y=230)
 
         cadastros = Button(tela_bem_vindo, text="Cadastros", command=self.ChamaCadastros)
         cadastros.place(x=90, y=270)
 
-        recebimentos = Button(tela_bem_vindo, text="Recebimentos")  # ,command=Caixa)
+        recebimentos = Button(tela_bem_vindo, text="Listar")  # ,command=Caixa)
         recebimentos.place(x=90, y=310)
         tela_bem_vindo.mainloop()
 
     def ChamaCaixa(self):
-        AberturaCaixa.AberturaCaixa()
+        SelecaoCaixa.SelecaoCaixa()
+
     def ChamaEstoque(self):
         Estoque.Estoque()
+
     def ChamaCadastros(self):
         Cadastros.Cadastros()
 
+    def ChamaCompraVenda(self):
+        CompraOuVenda.CompraOuVenda()
 
