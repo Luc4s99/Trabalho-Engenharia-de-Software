@@ -1,8 +1,8 @@
 from tkinter import *
-import CadastroFornecedor
-import Cad_Rua
-import Cad_Bairro
-import CadastroCliente
+import Telas.CadastroFornecedor
+import Telas.Cad_Rua
+import Telas.Cad_Bairro
+import Telas.CadastroCliente
 
 
 class Cadastros(Frame):
@@ -40,16 +40,16 @@ class Cadastros(Frame):
         self.tela_cadastros.destroy()
 
     def ChamaCadastroFornecedor(self):
-        CadastroFornecedor.CadastroFornecedor()
+        Telas.CadastroFornecedor.CadastroFornecedor()
 
     def ChamaCadastroRua(self):
-        Cad_Rua.CadastroRua()
+        Telas.Cad_Rua.CadastroRua()
 
     def ChamaCadastroBairro(self):
-        Cad_Bairro.CadastroBairro()
+        Telas.Cad_Bairro.CadastroBairro()
 
     def ChamaCadastroCliente(self):
-        CadastroCliente.CadastroCliente()
+        Telas.CadastroCliente.CadastroCliente()
 
     def voltar(self):
         self.tela_cadastros.destroy()

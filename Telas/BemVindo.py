@@ -1,12 +1,11 @@
 from tkinter import *
 
 
-import SelecaoCaixa
-import Estoque
-import Cadastros
-import CompraOuVenda
-import FechamentoCaixa
-#import Fornecedores
+import Telas.SelecaoCaixa
+import Telas.Estoque
+import Telas.Cadastros
+import Telas.CompraOuVenda
+import Telas.ListaCompraVenda
 
 valorInicialCaixa = DoubleVar
 
@@ -42,19 +41,22 @@ class Principal(Frame):
         cadastros = Button(tela_bem_vindo, text="Cadastros", command=self.ChamaCadastros)
         cadastros.place(x=90, y=270)
 
-        recebimentos = Button(tela_bem_vindo, text="Listar")  # ,command=Caixa)
+        recebimentos = Button(tela_bem_vindo, text="Listar", command=self.ChamaListar)  # ,command=Caixa)
         recebimentos.place(x=90, y=310)
         tela_bem_vindo.mainloop()
 
     def ChamaCaixa(self):
-        SelecaoCaixa.SelecaoCaixa()
+        Telas.SelecaoCaixa.SelecaoCaixa()
 
     def ChamaEstoque(self):
-        Estoque.Estoque()
+        Telas.Estoque.Estoque()
 
     def ChamaCadastros(self):
-        Cadastros.Cadastros()
+        Telas.Cadastros.Cadastros()
 
     def ChamaCompraVenda(self):
-        CompraOuVenda.CompraOuVenda()
+        Telas.CompraOuVenda.CompraOuVenda()
+
+    def ChamaListar(self):
+        Telas.ListaCompraVenda
 

@@ -1,4 +1,5 @@
 from tkinter import *
+import Conexao.ConexaoBd
 
 
 class CadastroBairro(Frame):
@@ -15,10 +16,10 @@ class CadastroBairro(Frame):
 
         nome_bairro_label = Label(self.tela_cad_bairro, text="Nome do Bairro:")
         nome_bairro_label.place(x=70, y=130)
-        nome_bairro_entrada = Entry(self.tela_cad_bairro, width=43)
-        nome_bairro_entrada.place(x=180, y=130)
+        self.nome_bairro_entrada = Entry(self.tela_cad_bairro, width=43)
+        self.nome_bairro_entrada.place(x=180, y=130)
 
-        salvar = Button(self.tela_cad_bairro, text="Cadastrar")
+        salvar = Button(self.tela_cad_bairro, text="Cadastrar", command=self.cadastrar_bairro)
         salvar.place(x=150, y=330)
         voltar = Button(self.tela_cad_bairro, text="Voltar", command=self.voltar)
         voltar.place(x=400, y=330)
@@ -27,3 +28,13 @@ class CadastroBairro(Frame):
 
     def voltar(self):
         self.tela_cad_bairro.destroy()
+
+    def cadastrar_bairro(self):
+        query = f"INSERT INTO `Construct`.`Bairro` (barNome) VALUES (\"{self.nome_bairro_entrada.get()}\");"
+        Conexao.ConexaoBd.cursor.execute(query)
+
+        Conexao.ConexaoBd.conexao.commit()
+
+        self.voltar()
+
+

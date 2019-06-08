@@ -1,13 +1,13 @@
 from tkinter import *
-import Compra
-import InicioVenda
+import Telas.Compra
+import Telas.InicioVenda
 
 
 class CompraOuVenda(Frame):
     def __init__(self):
         self.tela_compra_ou_venda = Tk()
         self.tela_compra_ou_venda.geometry("600x400")
-        self.tela_compra_ou_venda.title("Pedido")
+        self.tela_compra_ou_venda.title("Compra ou Venda")
         self.tela_compra_ou_venda.configure(background='#D3D3D3')
 
         caixa_canvas = Canvas(self.tela_compra_ou_venda, width=800, height=500, background='#ccd7ff')
@@ -30,7 +30,7 @@ class CompraOuVenda(Frame):
         self.tela_compra_ou_venda.destroy()
 
     def ChamaCompra(self):
-        Compra.Compra()
+        Telas.Compra.Compra()
 
     def ChamaVenda(self):
-        InicioVenda.Venda()
+        Telas.InicioVenda.Venda()

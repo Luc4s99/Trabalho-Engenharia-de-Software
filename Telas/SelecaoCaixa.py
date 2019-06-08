@@ -1,6 +1,6 @@
 from tkinter import *
-import FechamentoCaixa
-import AberturaCaixa
+import Telas.FechamentoCaixa
+import Telas.AberturaCaixa
 
 
 class SelecaoCaixa(Frame):
@@ -30,7 +30,7 @@ class SelecaoCaixa(Frame):
         self.tela_selecao_caixa.destroy()
 
     def ChamaAberturaCaixa(self):
-        AberturaCaixa.AberturaCaixa()
+        Telas.AberturaCaixa.AberturaCaixa()
 
     def ChamaFechamentoCaixa(self):
-        FechamentoCaixa.Fechamento_Caixa()
+        Telas.FechamentoCaixa.Fechamento_Caixa()

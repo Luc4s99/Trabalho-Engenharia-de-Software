@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import Conexao.ConexaoBd
 
 
 class CadastroRua(Frame):
@@ -16,20 +17,15 @@ class CadastroRua(Frame):
 
         nome_rua_label = Label(self.tela_cad_rua, text="Nome da Rua:")
         nome_rua_label.place(x=70, y=100)
-        nome_rua_entrada = Entry(self.tela_cad_rua, width=43)
-        nome_rua_entrada.place(x=170, y=100)
+        self.nome_rua_entrada = Entry(self.tela_cad_rua, width=43)
+        self.nome_rua_entrada.place(x=170, y=100)
 
         nome_bairro_label = Label(self.tela_cad_rua, text="Bairro:")
         nome_bairro_label.place(x=70, y=160)
-        combo_bairros = ttk.Combobox(self.tela_cad_rua,
-                                    values=[
-                                        "Aqui vem uma",
-                                        "query SQL",
-                                        "que mostra",
-                                        "as opções"])
-        combo_bairros.place(x=120, y=160)
+        self.combo_bairros = ttk.Combobox(self.tela_cad_rua, values=Conexao.ConexaoBd.listar("SELECT barNome FROM Bairro;"))
+        self.combo_bairros.place(x=120, y=160)
 
-        salvar = Button(self.tela_cad_rua, text="Cadastrar")
+        salvar = Button(self.tela_cad_rua, text="Cadastrar", command=self.cadastrar_rua)
         salvar.place(x=150, y=330)
         voltar = Button(self.tela_cad_rua, text="Voltar", command=self.voltar)
         voltar.place(x=400, y=330)
@@ -38,3 +34,19 @@ class CadastroRua(Frame):
 
     def voltar(self):
         self.tela_cad_rua.destroy()
+
+    def cadastrar_rua(self):
+        codigo_bairro = 0
+
+        query = f"SELECT barCodigo FROM `Construct`.`Bairro` WHERE barNome=\"{self.combo_bairros.get()}\";"
+        Conexao.ConexaoBd.cursor.execute(query)
+
+        for c in Conexao.ConexaoBd.cursor:
+            codigo_bairro = c[0]
+
+        query = f"INSERT INTO `Construct`.`Rua` (ruaNome, rua_barCodigo) VALUES (\"{self.nome_rua_entrada.get()}\", \"{codigo_bairro}\");"
+        Conexao.ConexaoBd.cursor.execute(query)
+
+        Conexao.ConexaoBd.conexao.commit()
+
+        self.voltar()

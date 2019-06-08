@@ -1,3 +1,0 @@
-import BemVindo
-
-BemVindo.Principal()

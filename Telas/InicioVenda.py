@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
-import ContinuaVenda
+import Telas.ContinuaVenda
+import Conexao.ConexaoBd
 
 
 class Venda(Frame):
@@ -17,21 +18,15 @@ class Venda(Frame):
 
         nome_produto_label = Label(self.tela_venda, text="Produto:")
         nome_produto_label.place(x=70, y=100)
-        combo_produtos = ttk.Combobox(self.tela_venda,
-                                      values=[
-                                          "Aqui vem uma",
-                                          "query SQL",
-                                          "que mostra",
-                                          "as opções"])
+
+        combo_produtos = ttk.Combobox(self.tela_venda, values=Conexao.ConexaoBd.listar("SELECT prodNome FROM Produtos;"))
         combo_produtos.place(x=130, y=100)
 
-        nome_rua_label = Label(self.tela_venda, text="Unidade:")
-        nome_rua_label.place(x=70, y=160)
-        combo_unidade = ttk.Combobox(self.tela_venda,
-                                     values=[
-                                         "Kg",
-                                         "Caminhão"])
-        combo_unidade.place(x=135, y=160)
+        unidade_label = Label(self.tela_venda, text="Unidade:")
+        unidade_label.place(x=70, y=160)
+        self.combo_unidade = ttk.Combobox(self.tela_venda,
+                                          values=["Kg", "Caminhão"])
+        self.combo_unidade.place(x=135, y=160)
 
         continuar = Button(self.tela_venda, text="Continuar", command=self.continua_venda)
         continuar.place(x=150, y=330)
@@ -41,8 +36,20 @@ class Venda(Frame):
         self.tela_venda.mainloop()
 
     def continua_venda(self):
-        ContinuaVenda.Venda()
+        Telas.ContinuaVenda.Venda(self.combo_unidade.get())
 
     def voltar(self):
         self.tela_venda.destroy()
 
+    def mostrar_produtos(self):
+        # Pegando os produtos do banco de dados
+        prod = Conexao.ConexaoBd.listar_produtos()
+        produtos = ''
+
+        for i in range(0, len(prod)):
+            if i == len(prod) - 1:
+                produtos += f'"{prod[i]}"'
+            else:
+                produtos += f'"{prod[i]}", '
+
+        return produtos
