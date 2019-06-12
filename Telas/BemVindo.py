@@ -18,31 +18,33 @@ class Principal(Frame):
         tela_bem_vindo.geometry("800x500")
         tela_bem_vindo.configure(background='#D3D3D3')
 
-        canvas = Canvas(tela_bem_vindo, width=800, height=500, background='#DFFFD3')
+        canvas = Canvas(tela_bem_vindo, width=800, height=500, background='#ccd7ff')
 
-        r1 = canvas.create_rectangle(50, 100, 250, 400, fill="white")
-        r2 = canvas.create_rectangle(300, 100, 700, 220, fill="white")
-        r3 = canvas.create_rectangle(300, 250, 700, 400, fill="white")
+        r1 = canvas.create_rectangle(50, 100, 250, 400, fill="white", outline='red', width=3)
+        r2 = canvas.create_rectangle(300, 100, 700, 220, fill="white", outline='red', width=3)
+        r3 = canvas.create_rectangle(300, 250, 700, 400, fill="white", outline='red', width=3)
 
         # img = PhotoImage(file="logo_provisoria2.jpg")
         # canvas.create_image(0, 0, image=img, anchor=NW)
 
         canvas.place(x=0, y=0)
 
-        caixa = Button(tela_bem_vindo, text="Caixa", command=self.ChamaCaixa)
-        caixa.place(x=90, y=150)
+        #################### bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0
 
-        estoque = Button(tela_bem_vindo, text="Estoque", command=self.ChamaEstoque)
-        estoque.place(x=90, y=190)
+        caixa = Button(tela_bem_vindo, text="Caixa",  bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaCaixa)
+        caixa.place(x=80, y=150)
 
-        pedidos = Button(tela_bem_vindo, text="Compra/Venda", command=self.ChamaCompraVenda)  # ,command=Caixa)
-        pedidos.place(x=90, y=230)
+        estoque = Button(tela_bem_vindo, text="Estoque", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaEstoque)
+        estoque.place(x=80, y=190)
 
-        cadastros = Button(tela_bem_vindo, text="Cadastros", command=self.ChamaCadastros)
-        cadastros.place(x=90, y=270)
+        pedidos = Button(tela_bem_vindo, text="Compra/Venda", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaCompraVenda)  # ,command=Caixa)
+        pedidos.place(x=80, y=230)
 
-        recebimentos = Button(tela_bem_vindo, text="Listar", command=self.ChamaListar)  # ,command=Caixa)
-        recebimentos.place(x=90, y=310)
+        cadastros = Button(tela_bem_vindo, text="Cadastros", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaCadastros)
+        cadastros.place(x=80, y=270)
+
+        recebimentos = Button(tela_bem_vindo, text="Listar", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaListar)  # ,command=Caixa)
+        recebimentos.place(x=80, y=310)
         tela_bem_vindo.mainloop()
 
     def ChamaCaixa(self):
@@ -59,4 +61,5 @@ class Principal(Frame):
 
     def ChamaListar(self):
         Telas.ListaCompraVenda
+
 
