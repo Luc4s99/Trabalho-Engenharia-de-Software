@@ -18,9 +18,8 @@ class Venda(Frame):
 
         nome_produto_label = Label(self.tela_venda, text="Produto:")
         nome_produto_label.place(x=70, y=100)
-
-        combo_produtos = ttk.Combobox(self.tela_venda, values=Conexao.ConexaoBd.listar("SELECT prodNome FROM Produtos;"))
-        combo_produtos.place(x=130, y=100)
+        self.combo_produtos = ttk.Combobox(self.tela_venda, values=Conexao.ConexaoBd.listar("SELECT prodNome FROM Produtos;"))
+        self.combo_produtos.place(x=130, y=100)
 
         unidade_label = Label(self.tela_venda, text="Unidade:")
         unidade_label.place(x=70, y=160)
@@ -36,20 +35,7 @@ class Venda(Frame):
         self.tela_venda.mainloop()
 
     def continua_venda(self):
-        Telas.ContinuaVenda.Venda(self.combo_unidade.get())
+        Telas.ContinuaVenda.Venda(self.combo_produtos.get(), self.combo_unidade.get())
 
     def voltar(self):
         self.tela_venda.destroy()
-
-    def mostrar_produtos(self):
-        # Pegando os produtos do banco de dados
-        prod = Conexao.ConexaoBd.listar_produtos()
-        produtos = ''
-
-        for i in range(0, len(prod)):
-            if i == len(prod) - 1:
-                produtos += f'"{prod[i]}"'
-            else:
-                produtos += f'"{prod[i]}", '
-
-        return produtos

@@ -19,7 +19,6 @@ class SelecaoCaixa(Frame):
         bt2 = Button(self.tela_selecao_caixa, text="Fechar Caixa", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaFechamentoCaixa)
         bt2.place(x=360, y=80)
 
-
         voltar = Button(self.tela_selecao_caixa, text="Voltar",bg="white", width=14, activebackground='#cad8f4', font='Bahnschrift',  bd=0, command=self.voltar)
         voltar.place(x=400, y=200)
 

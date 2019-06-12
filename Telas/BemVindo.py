@@ -6,6 +6,7 @@ import Telas.Estoque
 import Telas.Cadastros
 import Telas.CompraOuVenda
 import Telas.ListaCompraVenda
+import Telas.SelecaoListar
 
 valorInicialCaixa = DoubleVar
 
@@ -32,19 +33,19 @@ class Principal(Frame):
         #################### bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0
 
         caixa = Button(tela_bem_vindo, text="Caixa",  bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaCaixa)
-        caixa.place(x=80, y=150)
+        caixa.place(x=65, y=150)
 
         estoque = Button(tela_bem_vindo, text="Estoque", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaEstoque)
-        estoque.place(x=80, y=190)
+        estoque.place(x=65, y=190)
 
         pedidos = Button(tela_bem_vindo, text="Compra/Venda", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaCompraVenda)  # ,command=Caixa)
-        pedidos.place(x=80, y=230)
+        pedidos.place(x=65, y=230)
 
         cadastros = Button(tela_bem_vindo, text="Cadastros", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaCadastros)
-        cadastros.place(x=80, y=270)
+        cadastros.place(x=65, y=270)
 
         recebimentos = Button(tela_bem_vindo, text="Listar", bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaListar)  # ,command=Caixa)
-        recebimentos.place(x=80, y=310)
+        recebimentos.place(x=65, y=310)
         tela_bem_vindo.mainloop()
 
     def ChamaCaixa(self):
@@ -60,6 +61,6 @@ class Principal(Frame):
         Telas.CompraOuVenda.CompraOuVenda()
 
     def ChamaListar(self):
-        Telas.ListaCompraVenda
+        Telas.SelecaoListar.SelecaoListar()
 
 

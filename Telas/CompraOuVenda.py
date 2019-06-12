@@ -15,12 +15,10 @@ class CompraOuVenda(Frame):
         caixa_canvas.place(x=0, y=0)
 
         bt1 = Button(self.tela_compra_ou_venda, text="Comprar Materiais", bg="#cad8f4", width=17, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaCompra)
-        bt1.place(x=120, y=100)
+        bt1.place(x=80, y=100)
         bt2 = Button(self.tela_compra_ou_venda, text="Vender Materiais", bg="#cad8f4", width=17, activebackground='white', font='Bahnschrift',  bd=0, command=self.ChamaVenda)
-        bt2.place(x=360, y=100)
+        bt2.place(x=320, y=100)
 
-        salvar = Button(self.tela_compra_ou_venda, bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, text="Salvar")  # ,command=Caixa)
-        salvar.place(x=120, y=190)
         voltar = Button(self.tela_compra_ou_venda, bg="#cad8f4", width=14, activebackground='white', font='Bahnschrift',  bd=0, text="Voltar", command=self.voltar)  # ,command=Caixa)
         voltar.place(x=360, y=190)
 

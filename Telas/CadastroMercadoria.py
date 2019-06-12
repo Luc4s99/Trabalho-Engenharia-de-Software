@@ -35,27 +35,25 @@ class CadastroMercadoria(Frame):
         nome_produto_label.place(x=70, y=100)
 
         nome_produto = Entry(self.tela_cadastro_mercadoria, bg="#cad8f4", width=30,  font='Bahnschrift',  bd=0, text=nome_produto_bd)
-        nome_produto.place(x=230, y=100)
+        nome_produto.place(x=245, y=100)
 
         total_estoque_produto_label = Label(self.tela_cadastro_mercadoria, bg="#cad8f4", width=17,  font='Bahnschrift',  bd=0, text="Total em Estoque: ")
         total_estoque_produto_label.place(x=70, y=150)
 
         total_estoque_produto = Entry(self.tela_cadastro_mercadoria, bg="#cad8f4", width=17,  font='Bahnschrift',  bd=0, text=total_estoque_produto_bd)
-        total_estoque_produto.place(x=220, y=150)
+        total_estoque_produto.place(x=230, y=150)
 
         estoque_minimo_produto_label = Label(self.tela_cadastro_mercadoria, bg="#cad8f4", width=17,  font='Bahnschrift',  bd=0, text="Estoque Minimo: ")
         estoque_minimo_produto_label.place(x=70, y=200)
 
         estoque_minimo_produto = Entry(self.tela_cadastro_mercadoria, bg="#cad8f4", width=17,  font='Bahnschrift',  bd=0, text=estoque_minimo_produto_bd)
-        estoque_minimo_produto.place(x=220, y=200)
+        estoque_minimo_produto.place(x=230, y=200)
 
-
-        proco_compra_produto_label = Label(self.tela_cadastro_mercadoria, bg="#cad8f4", width=17,  font='Bahnschrift',  bd=0, text="Preço de Compra R$: ")
+        proco_compra_produto_label = Label(self.tela_cadastro_mercadoria, bg="#cad8f4", width=18,  font='Bahnschrift',  bd=0, text="Preço de Compra R$: ")
         proco_compra_produto_label.place(x=70, y=250)
 
         proco_compra_produto_label = Entry(self.tela_cadastro_mercadoria, bg="#cad8f4", width=17,  font='Bahnschrift',  bd=0, text=preco_compra_produto_bd)
-        proco_compra_produto_label.place(x=220, y=250)
-
+        proco_compra_produto_label.place(x=250, y=250)
 
         proco_venda_produto_label = Label(self.tela_cadastro_mercadoria, bg="#cad8f4", width=17,  font='Bahnschrift',  bd=0, text="Preço de Venda R$: ")
         proco_venda_produto_label.place(x=70, y=300)
